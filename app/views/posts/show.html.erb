@@ -1,0 +1,134 @@
+<%= link_to("スコアを入力する","/result/#{@id}") %>
+<%= link_to("スコアを編集する","/score/#{@id}/edit") %>
+<br>
+
+<%= "ウマ：#{@game.uma} レート：#{@game.rate} チップ：#{@game.tip}" %>
+
+<table>
+  <tr>
+    <th>得点</th>
+    <% num = 1 %>
+    <% while num <= @score_player1.length do %>
+    <th><%= "game#{num}" %></th>
+    <% num += 1 %>
+    <% end %>
+  </tr>
+  <tr>
+    <th><%= @game.player1 %></th>
+    <% @scores_1.each do |score| %>
+      <th><%= score.score %></th>
+    <% end %>  
+  </tr>
+  <tr>
+    <th><%= @game.player2 %></th>
+    <% @scores_2.each do |score| %>
+      <th><%= score.score %></th>
+    <% end %>  
+  </tr>
+  <tr>
+    <th><%= @game.player3 %></th>
+    <% @scores_3.each do |score| %>
+      <th><%= score.score %></th>
+    <% end %>  
+  </tr>
+  <tr>
+    <th><%= @game.player4 %></th>
+    <% @scores_4.each do |score| %>
+      <th><%= score.score %></th>
+    <% end %>  
+  </tr>
+</table>
+
+
+
+
+<table>
+  <tr>
+    <th>ポイント換算</th>
+    <% num = 1 %>
+    <% while num <= @score_player1.length do %>
+    <th><%= "game#{num}" %></th>
+    <% num += 1 %>
+    <% end %>
+    <th>point</th>
+    <th>tip</th>
+    <th>total</th>
+  </tr>
+
+  <tr>
+    <% sum_score = 0 %>
+    <th><%= @game.player1 %></th>
+    <% @score_player1.each do |score| %>
+      <th><%= score %></th>
+      <% sum_score += score %>
+    <% end %>
+    <th><%= sum_score %></th>
+    <th>
+    <form oninput="op1.value = Number(a.value) * <%= @game.tip %> ;">
+      <input type="number" name="a" value="0" size="5">
+    </th>
+    <th>
+      <output name="op1">0</output>
+    </th>
+    </form>
+  </tr>
+
+  <tr>
+  <% sum_score = 0 %>
+  <th><%= @game.player2 %></th>
+    <% @score_player2.each do |score| %>
+      <th><%= score %></th>
+      <% sum_score += score %>
+    <% end %>
+    <th><%= sum_score %></th>
+    <th>
+    <form oninput="op1.value = Number(a.value) * <%= @game.tip %> ;">
+      <input type="number" name="a" value="0" size="5">
+    </th>
+    <th>
+      <output name="op1">0</output>
+    </th>
+    </form>
+  </tr>
+  <tr>
+    <% sum_score = 0 %>
+    <th><%= @game.player3 %></th>
+    <% @score_player3.each do |score| %>
+      <th><%= score %></th>
+      <% sum_score += score %>
+    <% end %>
+    <th><%= sum_score %></th>
+    <th>
+    <form oninput="op1.value = Number(a.value) * <%= @game.tip %> ;">
+      <input type="number" name="a" value="0" size="5">
+    </th>
+    <th>
+      <output name="op1">0</output>
+    </th>
+    </form>
+    
+  </tr>
+  <tr>
+    <% sum_score = 0 %>
+    <th><%= @game.player4 %></th>
+    <% @score_player4.each do |score| %>
+      <th><%= score %></th>
+      <% sum_score += score %>
+    <% end %>
+    <th><%= sum_score %></th>
+    <th>
+    <form oninput="op1.value = Number(a.value) * <%= @game.tip %> ;">
+      <input type="number" name="a" value="0" size="5">
+    </th>
+    <th>
+      <output name="op1">0</output>
+    </th>
+    </form>
+  </tr>
+</table>
+
+
+<%= link_to("ゲーム一覧に戻る","/index/#{@current_user.id}") %>
+
+
+

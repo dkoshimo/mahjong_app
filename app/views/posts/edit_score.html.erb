@@ -1,0 +1,16 @@
+スコアの編集ページ<br>
+<%= form_tag("/score/#{@game.id}/update") do %>
+<%= @game.player1  %><br>
+<% @scores_1.each do |score| %>
+  <%= score.game_num %> : 
+  <%= score.id %>
+  <input name="score.id" type="number" value="<%= score.score %>" ><br>
+  <% end %>
+
+
+<input type="submit" value="編集する"><br>
+<% end %> 
+
+
+<%= link_to("結果に戻る","/game/#{@game.id}") %>
+

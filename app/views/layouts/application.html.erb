@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MahjongApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+    <ul>
+      <% if  @current_user %>
+      <li>
+        現在ログインしているユーザー:
+        <%= @current_user.name %>
+      </li>
+      <li>
+        <%= link_to("ログアウト","/logout",{method: "post"}) %>
+        <%= link_to("ゲーム一覧","/index/#{ @current_user.id}") %>
+       </li>
+      <% else %>
+      <li>
+       <%= link_to("Top","/") %>
+       <%= link_to("ログイン","/login") %>
+       <%= link_to("新規作成","/new") %>
+      </li>
+      <% end %>
+    </ul>
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+  <% end %>
+
+    <%= yield %>
+    </header>
+  </body>
+</html>

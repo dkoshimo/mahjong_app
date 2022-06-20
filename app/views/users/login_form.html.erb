@@ -1,0 +1,14 @@
+<% if @error_message %>
+  <%= @error_message %>
+<% end %>
+
+
+<%= form_tag("/login") do %>
+<p>メールアドレス</p>
+<input name="email" type="text" value="<%= @email %>">
+<p>パスワード</p>
+<input name="password" type="text" value="<%= @password %>">
+<input type="submit" value="ログイン"> 
+<% end %>
+<br>
+<%= link_to("新規作成はこちら","/new") %>

@@ -1,0 +1,57 @@
+<p>25000点持ち、30000点しです。</p>
+
+<%= form_tag("/score/#{@game.id}/create") do %>
+
+  ゲーム回数
+  <input name="game_num" type='text'> 
+  <p>1着 ; 
+  <input name="ranking_1" type="hidden" value="1">
+  <select name="playerID_1">
+    <option><%= @game.player1 %></option>
+    <option><%= @game.player2 %></option>
+    <option><%= @game.player3 %></option>
+    <option><%= @game.player4 %></option>
+  </select>
+  <input name="score_1" type="number"></p>
+
+  <p>2着 ; 
+  <input name="ranking_2" type="hidden" value="2">
+  <select name="playerID_2">
+    <option><%= @game.player1 %></option>
+    <option><%= @game.player2 %></option>
+    <option><%= @game.player3 %></option>
+    <option><%= @game.player4 %></option>
+  </select>
+  <input name="score_2" type="number"></p>
+
+  <p>3着 ; 
+  <input name="ranking_3" type="hidden" value="3">
+  <select name="playerID_3">
+    <option><%= @game.player1 %></option>
+    <option><%= @game.player2 %></option>
+    <option><%= @game.player3 %></option>
+    <option><%= @game.player4 %></option>
+  </select>
+  <input name="score_3" type="number"></p>
+
+  <p>4着 ; 
+  <input name="ranking_4" type="hidden" value="4">
+  <select name="playerID_4">
+    <option><%= @game.player1 %></option>
+    <option><%= @game.player2 %></option>
+    <option><%= @game.player3 %></option>
+    <option><%= @game.player4 %></option>
+  </select>
+  <input name="score_4" type="number"></p>
+  <br>
+  <input type="submit" value="追加する">
+<% end %>
+  
+  <%= link_to("結果に戻る","/game/#{@game.id}") %>
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+
+  <%= form_tag("/index/#{@id}/update") do %>
+
+  ゲーム設定の変更<br>
+  名前 : <input name='name' type='text' value="<%= @game.name %>"><br>  
+  
+  ウマ : 
+  <select name='uma' value="<%= @game.uma %>">
+    <option>選択してください</option>
+    <option>10-20</option>
+    <option>10-30</option>
+  </select>
+  
+  <p>レート</p>
+  <select name='rate' value="<%= @game.rate %>">
+    <option>選択してください</option>
+    <option>50</option>
+    <option>100</option>
+  </select>
+  
+  <p>チップ</p>
+  <select name='tip' value="<%= @game.tip %>">
+    <option>選択してください</option>
+    <option>100</option>
+    <option>200</option>
+    <option>300</option>
+  </select>
+  <br>
+  
+  <p>メンツ</p>
+  <input name='player1' type='text' value="<%= @game.player1 %>"><br>
+  <input name='player2' type='text' value="<%= @game.player2 %>"><br>
+  <input name='player3' type='text' value="<%= @game.player3 %>"><br>
+  <input name='player4' type='text' value="<%= @game.player4 %>"><br>
+  
+  
+  <input type='submit' value='登録する'>
+  
+  <% end %>
+
+  <%= link_to("このゲームを削除する", "/index/#{@id}/destroy",{method:"post"}) %>
+
+
+  

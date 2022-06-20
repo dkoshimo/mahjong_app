@@ -1,0 +1,11 @@
+<%= form_tag("/users/create") do %>
+<p>名前</p>
+<input name='name' type= 'text'>
+<p>メールアドレス</p>
+<input name='email' type= 'text'>
+<p>パスワード</p>
+<input name='password' type='text'>
+<input type="submit" value="登録する"> 
+<% end %>
+<br>
+<%= link_to("ログインはこちら","/login") %>

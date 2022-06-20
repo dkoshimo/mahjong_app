@@ -1,0 +1,41 @@
+
+<%= form_tag("/game/create") do %>
+
+<p>名前</p>
+<input name='name' type='text'><br>  
+
+<p>ウマ</p>
+<select name='uma'>
+  <option>選択してください</option>
+  <option>10-20</option>
+  <option>10-30</option>
+</select>
+
+<p>レート</p>
+<select name='rate'>
+  <option>選択してください</option>
+  <option>50</option>
+  <option>100</option>
+</select>
+
+<p>チップ</p>
+<select name='tip' >
+  <option>選択してください</option>
+  <option>100</option>
+  <option>200</option>
+  <option>300</option>
+</select>
+<br>
+
+<p>メンツ</p>
+<input name='player1' type='text'><br>
+<input name='player2' type='text'><br>
+<input name='player3' type='text'><br>
+<input name='player4' type='text'><br>
+
+
+<input type='submit' value='登録する'>
+<% end %>
+
+<br>
+<%= link_to("戻る","/index/#{@current_user.id}") %>

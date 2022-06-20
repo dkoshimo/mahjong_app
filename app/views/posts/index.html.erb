@@ -1,0 +1,22 @@
+<header>
+  <div class="header-logo">
+    <p>MahjongApp</p>
+  </div>
+      <p>結果表示のページ</p>
+    <%= link_to("ゲームを作成","/game") %>
+</header>
+
+<ul>
+<% @games.each do |game| %>
+  <li>
+  <%= link_to(game.name,"/game/#{game.id}") %>
+    : <%= game.player1 %>,
+    <%= game.player2 %>,
+    <%= game.player3 %>,
+    <%= game.player4 %>
+    <%= link_to("ゲーム設定の編集","/index/#{game.id}/edit") %>
+    </li>
+<% end %>
+</ul>
+
+
